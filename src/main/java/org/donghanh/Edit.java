@@ -18,10 +18,7 @@ import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.Charset;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.Enumeration;
 import java.util.Set;
 
@@ -356,30 +353,12 @@ public class Edit extends HttpServlet {
             sql = "CREATE TABLE IF NOT EXISTS all_candidates_" + university + " AS (SELECT DISTINCT `Ma so`, `Ho dem`, `Ten`, '00000000000000000000' AS `Phan phoi giam khao` FROM " + Parameters.PARAMS.get("CANDIDATE_TABLE_NAME") + " WHERE `Ki` =" + Parameters.PARAMS.get("CURRENT_SEMESTER") + " AND `Truong` = '" + university + "');";
             System.out.print(sql);
             stmt.execute(sql);
-            ResultSet rs = stmt.executeQuery("SELECT count(*) AS nb FROM all_candidates_" + university);
-            rs.next();
 
-            int nb_candidates = rs.getInt("nb");
-            String[] Circular_Distribution = LocalFunctions.Distribution(nb_candidates, Parameters.NB_JUGES_BY_COPY.get(university), Parameters.MAX_DOCS.get(university), Parameters.EVALUATED_BY.get(university));
-            int period = Circular_Distribution.length;
+            // Distribute candidate to jury
+            distributeJuryCandidate(university, stmt);
 
             sql = "SELECT * FROM all_candidates_" + university;
-            rs = stmt.executeQuery(sql);
-
-            int[] index_list = new int[nb_candidates];
-
-            int counter = 0;
-            while (rs.next()) {
-                index_list[counter] = rs.getInt("Ma so");
-                counter++;
-            }
-
-            for (int index = 0; index < nb_candidates; ++index) {
-                stmt.execute("UPDATE all_candidates_" + university + " SET `Phan phoi giam khao`='" + Circular_Distribution[index % period] + "' WHERE `Ma so`='" + index_list[index] + "';");
-            }
-
-            sql = "SELECT * FROM all_candidates_" + university;
-            rs = stmt.executeQuery(sql);
+            ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
                 out.println("<tr>");
@@ -396,6 +375,30 @@ public class Edit extends HttpServlet {
         out.println("</body>");
         out.println("</html>");
     }
+
+    protected static void distributeJuryCandidate(String university, Statement stmt) throws SQLException {
+        ResultSet rs = stmt.executeQuery("SELECT count(*) AS nb FROM all_candidates_" + university);
+        rs.next();
+        int nb_candidates = rs.getInt("nb");
+
+        String sql = "SELECT * FROM all_candidates_" + university;
+        rs = stmt.executeQuery(sql);
+
+        int[] candidate_code_list = new int[nb_candidates];
+
+        int counter = 0;
+        while (rs.next()) {
+            candidate_code_list[counter] = rs.getInt("Ma so");
+            counter++;
+        }
+
+        String[] Circular_Distribution = LocalFunctions.Distribution(nb_candidates, Parameters.NB_JUGES_BY_COPY.get(university), Parameters.MAX_DOCS.get(university), Parameters.EVALUATED_BY.get(university));
+        int period = Circular_Distribution.length;
+        for (int index = 0; index < nb_candidates; ++index) {
+            stmt.execute("UPDATE all_candidates_" + university + " SET `Phan phoi giam khao`='" + Circular_Distribution[index % period] + "' WHERE `Ma so`='" + candidate_code_list[index] + "';");
+        }
+    }
+
 
     protected static void createEvaluationPage(HttpServletRequest request, HttpServletResponse response, String university) throws ServletException, IOException {
 
@@ -996,7 +999,8 @@ public class Edit extends HttpServlet {
         }
         if (cookies != null) {
             Cookie cookie = cookies[0];
-            if (!(cookie.getName().equals("Validated") && cookie.getValue().equals("OK"))) {
+            if (!(cookie.getName().equals("Validated")
+                    && (cookie.getValue().equals("OK") || cookie.getValue().equals("OKTechies")))) {
                 RequestDispatcher rs = request.getRequestDispatcher("/Login.html");
                 rs.forward(request, response);
                 return;
