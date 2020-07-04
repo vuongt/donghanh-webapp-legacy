@@ -425,7 +425,7 @@ public class Parameters extends HttpServlet {
 			
 			stmt.execute(sql);
 			
-			sql = "LOAD DATA INFILE '" + Parameters.PARAMS.get("LOCAL_PATH") + Parameters.PARAMS.get("LOCAL_SOURCE_FILE") + "' INTO TABLE " + Parameters.PARAMS.get("CANDIDATE_TABLE_NAME")
+			sql = "LOAD DATA LOCAL INFILE '" + Parameters.PARAMS.get("LOCAL_PATH") + Parameters.PARAMS.get("LOCAL_SOURCE_FILE") + "' INTO TABLE " + Parameters.PARAMS.get("CANDIDATE_TABLE_NAME")
 					+ "_main FIELDS TERMINATED BY '" + Parameters.PARAMS.get("SEPARATOR") + "' ENCLOSED BY '" + Parameters.PARAMS.get("DELIMITOR") + "'"
 					+ " LINES TERMINATED BY '\\n' IGNORE 1 LINES";
 			System.out.println(sql);
