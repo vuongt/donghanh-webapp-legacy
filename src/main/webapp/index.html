@@ -1,19 +1,101 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
-<link rel='stylesheet' type='text/css' href='main.css'>
-<title>Trang chủ</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dong Hanh Web App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/pricing.css" rel="stylesheet">
 </head>
+
 <body>
-<h2>Trang chủ</h2>
-<br>
-<input type="button" style="width: 600px; height: 40px;" onclick="location.href='ViewResults.html'; "value="Bạn là thành viên Đồng Hành muốn xem kết quả chấm, click vào đây." />
-<br>
-<input type="button" style="width: 600px; height: 40px;" onclick="location.href='Login.html'; "value="Bạn là thành viên nhóm đối nội, click vào đây." />
-<br>
-<input type="button" style="width: 600px; height: 40px;" onclick="location.href='Login.html'; "value="Bạn là thành viên nhóm kỹ thuật, click vào đây." />
-<br>
-<input type="button" style="width: 600px; height: 40px;" onclick="location.href='Login.html'; "value="Bạn là người chấm hồ sơ bằng hình thức online, click vào đây." />
-<br>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Dong Hanh Web App</h5>
+</div>
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Choose your profile to sign in</h1>
+    <!--    <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>-->
+</div>
+
+<div class="container">
+    <div class="card-deck mb-3 text-center">
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Chấm hồ sơ</h4>
+            </div>
+            <div class="card-body">
+                <p>Bạn là người chấm hồ sơ online</p>
+                <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='Login.html'">
+                    Sign in
+                </button>
+            </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Đối nội</h4>
+            </div>
+            <div class="card-body">
+                <p> Bạn là thành viên nhóm đối nội </p>
+                <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='Login.html'">
+                    Sign in
+                </button>
+            </div>
+        </div>
+        <div class="card mb-4 box-shadow">
+            <div class="card-header">
+                <h4 class="my-0 font-weight-normal">Kỹ thuật</h4>
+            </div>
+            <div class="card-body">
+                <p>Bạn là thành viên nhóm kỹ thuật</p>
+                <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='Login.html'">
+                    Sign in
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h4 class="display-6">Bạn là thành viên Đồng Hành muốn xem kết quả chấm ?</h4>
+        <button type="button" class="btn btn-lg btn-block btn-primary" onclick="location.href='ViewResults.html'">
+            Click here
+        </button>
+    </div>
+
+    <footer class="pt-4 my-md-5 pt-md-5 border-top">
+        <div class="row">
+            <div class="col-12 col-md">
+                <h5 class="text-muted"><img class="mb-2" src="images/dh-icon.jpeg" alt="" width="24" height="24">
+                    Dong Hanh Association</h5>
+                <small class="d-block mb-3 text-muted">&copy; 2019-2020</small>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-slim.min.js"><\/script>')</script>
+<script src="js/vendor/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/vendor/holder.min.js"></script>
+<script>
+      Holder.addTheme('thumb', {
+        bg: '#55595c',
+        fg: '#eceeef',
+        text: 'Thumbnail'
+      });
+
+</script>
 </body>
 </html>

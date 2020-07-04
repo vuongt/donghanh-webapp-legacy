@@ -1,18 +1,43 @@
-<html>
-    <head>
-        <title>login form</title>
-		<meta http-equiv='cache-control' content='max-age=0' />
-		<meta http-equiv='cache-control' content='no-cache' />
-		<meta http-equiv='expires' content='0' />
-		<meta http-equiv='expires' content='Tue, 01 Jan 1980 1:00:00 GMT' />
-		<meta http-equiv='pragma' content='no-cache' />
-		<link rel='stylesheet' type='text/css' href='main.css'>
-    </head>
-    <body>
-        <form method="post" action="Login">
-        Keyword 1:<input type="text" name="email" size="35"/><br/>
-        Keyword 2:<input type="password" name="pass" size="35" /><br/>
-        <input type="submit" value="Login" />
-        </form>
-    </body>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv='cache-control' content='max-age=0' />
+    <meta http-equiv='cache-control' content='no-cache' />
+    <meta http-equiv='expires' content='0' />
+    <meta http-equiv='expires' content='Tue, 01 Jan 1980 1:00:00 GMT' />
+    <meta http-equiv='pragma' content='no-cache' />
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Sign in to Dong Hanh Web App</title>
+
+<!--    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/sign-in/">-->
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+<form class="form-signin" action="Login" method="post">
+    <img class="mb-4" src="images/dh-icon.png" alt="" width=105 height="100">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input type="text" id="inputEmail" class="form-control" placeholder="Username" name="email" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="pass" required>
+<!--    <div class="checkbox mb-3">-->
+<!--        <label>-->
+<!--            <input type="checkbox" value="remember-me"> Remember me-->
+<!--        </label>-->
+<!--    </div>-->
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+<!--    <p class="mt-5 mb-3 text-muted">&copy; 2017-2018</p>-->
+</form>
+</body>
 </html>
