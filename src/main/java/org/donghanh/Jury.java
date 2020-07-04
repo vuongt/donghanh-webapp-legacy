@@ -21,32 +21,6 @@ import java.util.*;
 @WebServlet("/Jury")
 public class Jury extends HttpServlet {
   private static final long serialVersionUID = 1L;
-  public static String HTML_HEAD = "<head>\n" +
-      "    <meta charset=\"utf-8\">\n" +
-      "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n" +
-      "    <meta name=\"description\" content=\"\">\n" +
-      "    <meta name=\"author\" content=\"\">\n" +
-      "\n" +
-      "    <title>%s</title>\n" +
-      "    <!-- Bootstrap core CSS -->\n" +
-      "    <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n" +
-      "\n" +
-      "    <!-- Custom styles for this template -->\n" +
-      "    <link href=\"css/dashboard.css\" rel=\"stylesheet\">\n" +
-      "</head>";
-
-  public static String HTML_SCRIPT = "<script src=\"https://code.jquery.com/jquery-3.2.1.slim.min.js\"\n" +
-      "        integrity=\"sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN\"\n" +
-      "        crossorigin=\"anonymous\"></script>\n" +
-      "<script>window.jQuery || document.write('<script src=\"js/vendor/jquery-slim.min.js\"><\\/script>')</script>\n" +
-      "<script src=\"js/vendor/popper.min.js\"></script>\n" +
-      "<script src=\"js/bootstrap.min.js\"></script>\n" +
-      "\n" +
-      "<!-- Icons -->\n" +
-      "<script src=\"https://unpkg.com/feather-icons/dist/feather.min.js\"></script>\n" +
-      "<script>feather.replace()</script>" +
-      "<script type=\"text/javascript\" src=\"normalize.js\" ></script>";
-
 
   public Jury() {
     super();
@@ -108,16 +82,16 @@ public class Jury extends HttpServlet {
           candidateInfo.put("code", resultSet.getString("Ma so"));
           candidateInfo.put("first_name", resultSet.getString("Ho dem"));
           candidateInfo.put("last_name", resultSet.getString("Ten"));
-          candidateInfo.put("hoancanh", resultSet.getInt("hoancanh"));
-          candidateInfo.put("hoctap", resultSet.getInt("hoctap"));
-          candidateInfo.put("uocmo", resultSet.getInt("uocmo"));
-          candidateInfo.put("diemcong", resultSet.getInt("diemcong"));
-          candidateInfo.put("hoancanhnorm", resultSet.getInt("hoancanhnorm"));
-          candidateInfo.put("hoctapnorm", resultSet.getInt("hoctapnorm"));
-          candidateInfo.put("uocmonorm", resultSet.getInt("uocmonorm"));
-          candidateInfo.put("diemcongnorm", resultSet.getInt("diemcongnorm"));
-          candidateInfo.put("tongket", resultSet.getInt("tongket"));
-          candidateInfo.put("tongketnorm", resultSet.getInt("tongketnorm"));
+          candidateInfo.put("hoancanh", resultSet.getDouble("hoancanh"));
+          candidateInfo.put("hoctap", resultSet.getDouble("hoctap"));
+          candidateInfo.put("uocmo", resultSet.getDouble("uocmo"));
+          candidateInfo.put("diemcong", resultSet.getDouble("diemcong"));
+          candidateInfo.put("hoancanhnorm", resultSet.getDouble("hoancanhnorm"));
+          candidateInfo.put("hoctapnorm", resultSet.getDouble("hoctapnorm"));
+          candidateInfo.put("uocmonorm", resultSet.getDouble("uocmonorm"));
+          candidateInfo.put("diemcongnorm", resultSet.getDouble("diemcongnorm"));
+          candidateInfo.put("tongket", resultSet.getDouble("tongket"));
+          candidateInfo.put("tongketnorm", resultSet.getDouble("tongketnorm"));
           candidates.add(candidateInfo);
         }
         juryData.put("candidates", candidates);
