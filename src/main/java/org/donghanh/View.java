@@ -123,7 +123,7 @@ public class View extends HttpServlet {
 				return;
 			}
 			
-			nb_juges = LocalFunctions.nb_Juges(nb_candidates, Parameters.NB_JUGES_BY_COPY.get(university), Parameters.MAX_DOCS.get(university), Parameters.EVALUATED_BY.get(university));
+			nb_juges = LocalFunctions.nbJuges(nb_candidates, Parameters.NB_JUGES_BY_COPY.get(university), Parameters.MAX_DOCS.get(university), Parameters.EVALUATED_BY.get(university));
 			
 			String sql = "SELECT bilan_" + university + ".*, selected_" + university + ".selected FROM bilan_" + university + " INNER JOIN selected_" + university + " "
 					+ "ON bilan_" + university + ".`Ma so` = selected_" + university + ".`Ma so` ORDER BY finalscore DESC, bilan_" + university + ".`Ma so` ASC";

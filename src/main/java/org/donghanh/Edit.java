@@ -434,7 +434,7 @@ public class Edit extends HttpServlet {
             rs.next();
 
             nb_candidates = rs.getInt("nb");
-            nb_juges = LocalFunctions.nb_Juges(nb_candidates, Parameters.NB_JUGES_BY_COPY.get(university), Parameters.MAX_DOCS.get(university), Parameters.EVALUATED_BY.get(university));
+            nb_juges = LocalFunctions.nbJuges(nb_candidates, Parameters.NB_JUGES_BY_COPY.get(university), Parameters.MAX_DOCS.get(university), Parameters.EVALUATED_BY.get(university));
 
             for (int index = 0; index <= nb_juges; ++index) {
                 sql = "CREATE TABLE IF NOT EXISTS candidates_" + university + "_jury_" + index + " AS SELECT DISTINCT `Ma so`, `Ho dem`, `Ten`, "

@@ -45,7 +45,7 @@ public class     LocalFunctions {
         }
     }
     
-    public static int nb_Juges(int nb_docs, int nb_juges_by_copy, int max_docs, String evaluated_by){
+    public static int nbJuges(int nb_docs, int nb_juges_by_copy, int max_docs, String evaluated_by){
     	// Công thức cho cách chia xen kẽ, 
     	if (evaluated_by.equals("FR")){
         	if (nb_docs <= 0){
@@ -78,7 +78,7 @@ public class     LocalFunctions {
     }
     
     public static String[] Distribution(int numTotalCandidates, int numJuriesPerCopy, int max_docs, String evaluated_by){
-    	int numTotalJuries =  nb_Juges(numTotalCandidates, numJuriesPerCopy, max_docs, evaluated_by);
+    	int numTotalJuries =  nbJuges(numTotalCandidates, numJuriesPerCopy, max_docs, evaluated_by);
     	if (evaluated_by.equals("FR") && numJuriesPerCopy == 3){
     		if (numTotalJuries == 3){
         		return new String[]{"G0G1G2G3G", "G0G1G2G3G", "G0G1G2G3G"};
