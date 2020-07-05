@@ -49,7 +49,7 @@
                     <div class="col-sm-6">
                       <input size='60' class="form-control" style='text-align : center;' type='text' id='jugename${jury.index}' value='${jury.name}'>
                     </div>
-                  </div>
+                 </div>
                 <table class="table table-bordered table-hover" id='table_${university}_${jury.index}'>
                     <thead class="table-primary">
                         <th>Mã số</th>
