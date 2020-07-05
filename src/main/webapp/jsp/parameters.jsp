@@ -45,15 +45,15 @@
                         <c:if test = "${uni.evaluatedBy == 'FR'}">
                             <tr>
                                 <td>${uni.code}</td>
-                                <td><input type='text' size='30' id='UniversityName_${uni.code}' value='${uni.name}'></input></td>
-                                <td><input type='text' size='20' id='FoundationName_${uni.code}' value='${uni.code}'></input></td>
-                                <td><input type='text' size='10' id='StudentClass_${uni.code}' value='${uni.studentClass}'></input></td>
-                                <td><input type='text' size='5' id='EvaluatedBy_${uni.code}' value='${uni.evaluatedBy}'></input></td>
-                                <td><input type='text' size='20' id='Logo_${uni.code}' value='${uni.logo}'></input></td>
-                                <td><input type='text' size='5' id='VnCoefs_${uni.code}' value='${uni.vnCoefs}'></input></td>
-                                <td><input type='text' size='5' id='NbJugesByCopy_${uni.code}' value='${uni.nbJuriesByCopy}'></input></td>
-                                <td><input type='text' size='5' id='MaxDocs_${uni.code}' value='${uni.maxDocs}'></input></td>
-                                <td><button type='button' size='10' onclick='set_university_params("${uni.code}")'>Cập nhật</button><p><a href='' id='confirm_university_${uni.code}'></a></p></td>
+                                <td><input class="form-control" type='text' id='UniversityName_${uni.code}' value='${uni.name}'></input></td>
+                                <td><input class="form-control" type='text' id='FoundationName_${uni.code}' value='${uni.code}'></input></td>
+                                <td><input class="form-control" type='text' id='StudentClass_${uni.code}' value='${uni.studentClass}'></input></td>
+                                <td><input class="form-control" type='text' id='EvaluatedBy_${uni.code}' value='${uni.evaluatedBy}'></input></td>
+                                <td><input class="form-control" type='text' id='Logo_${uni.code}' value='${uni.logo}'></input></td>
+                                <td><input class="form-control" type='text' id='VnCoefs_${uni.code}' value='${uni.vnCoefs}'></input></td>
+                                <td><input class="form-control" type='text' id='NbJugesByCopy_${uni.code}' value='${uni.nbJuriesByCopy}'></input></td>
+                                <td><input class="form-control" type='text' id='MaxDocs_${uni.code}' value='${uni.maxDocs}'></input></td>
+                                <td style="width:  9%"><button class="btn btn-primary" onclick='set_university_params("${uni.code}")'>Cập nhật</button><p><a href='' id='confirm_university_${uni.code}'></a></p></td>
                             </tr>
                         </c:if>
 
@@ -68,15 +68,15 @@
                         <c:if test = "${uni.evaluatedBy == 'SG'}">
                             <tr>
                                 <td>${uni.code}</td>
-                                <td><input type='text' size='30' id='UniversityName_${uni.code}' value='${uni.name}'></input></td>
-                                <td><input type='text' size='20' id='FoundationName_${uni.code}' value='${uni.code}'></input></td>
-                                <td><input type='text' size='10' id='StudentClass_${uni.code}' value='${uni.studentClass}'></input></td>
-                                <td><input type='text' size='5' id='EvaluatedBy_${uni.code}' value='${uni.evaluatedBy}'></input></td>
-                                <td><input type='text' size='20' id='Logo_${uni.code}' value='${uni.logo}'></input></td>
-                                <td><input type='text' size='5' id='VnCoefs_${uni.code}' value='${uni.vnCoefs}'></input></td>
-                                <td><input type='text' size='5' id='NbJugesByCopy_${uni.code}' value='${uni.nbJuriesByCopy}'></input></td>
-                                <td><input type='text' size='5' id='MaxDocs_${uni.code}' value='${uni.maxDocs}'></input></td>
-                                <td><button type='button' size='10' onclick='set_university_params("${uni.code}")'>Cập nhật</button><p><a href='' id='confirm_university_${uni.code}'></a></p></td>
+                                <td><input class="form-control" type='text' id='UniversityName_${uni.code}' value='${uni.name}'></input></td>
+                                <td><input class="form-control" type='text' id='FoundationName_${uni.code}' value='${uni.code}'></input></td>
+                                <td><input class="form-control" type='text' id='StudentClass_${uni.code}' value='${uni.studentClass}'></input></td>
+                                <td><input class="form-control" type='text' id='EvaluatedBy_${uni.code}' value='${uni.evaluatedBy}'></input></td>
+                                <td><input class="form-control" type='text' id='Logo_${uni.code}' value='${uni.logo}'></input></td>
+                                <td><input class="form-control" type='text' id='VnCoefs_${uni.code}' value='${uni.vnCoefs}'></input></td>
+                                <td><input class="form-control" type='text' id='NbJugesByCopy_${uni.code}' value='${uni.nbJuriesByCopy}'></input></td>
+                                <td><input class="form-control" type='text' id='MaxDocs_${uni.code}' value='${uni.maxDocs}'></input></td>
+                                <td style="width:  9%"><button class="btn btn-primary" onclick='set_university_params("${uni.code}")'>Cập nhật</button><p><a href='' id='confirm_university_${uni.code}'></a></p></td>
                             </tr>
                         </c:if>
 
