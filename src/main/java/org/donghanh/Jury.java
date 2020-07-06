@@ -34,8 +34,6 @@ public class Jury extends HttpServlet {
 
     Statement statement;
     Connection conn;
-    int nbJudges = 0;
-    int nbCandidates = 0;
 
     try {
       //Register JDBC Driver
@@ -48,9 +46,9 @@ public class Jury extends HttpServlet {
       String query;
       ResultSet resultSet = statement.executeQuery("SELECT count(*) AS nb FROM all_candidates_" + university);
       resultSet.next();
-      nbCandidates = resultSet.getInt("nb");
+      int nbCandidates = resultSet.getInt("nb");
 
-      nbJudges = LocalFunctions.nbJuges(nbCandidates, Parameters.NB_JUGES_BY_COPY.get(university),
+      int nbJudges = LocalFunctions.nbJuges(nbCandidates, Parameters.NB_JUGES_BY_COPY.get(university),
           Parameters.MAX_DOCS.get(university), Parameters.EVALUATED_BY.get(university));
 
       request.setAttribute("nbJudges", nbJudges);
@@ -80,8 +78,8 @@ public class Jury extends HttpServlet {
         while (resultSet.next()) {
           Map<String, Object> candidateInfo = new HashMap<>();
           candidateInfo.put("code", resultSet.getString("Ma so"));
-          candidateInfo.put("first_name", resultSet.getString("Ho dem"));
-          candidateInfo.put("last_name", resultSet.getString("Ten"));
+          candidateInfo.put("last_name", resultSet.getString("Ho dem"));
+          candidateInfo.put("first_name", resultSet.getString("Ten"));
           candidateInfo.put("hoancanh", resultSet.getDouble("hoancanh"));
           candidateInfo.put("hoctap", resultSet.getDouble("hoctap"));
           candidateInfo.put("uocmo", resultSet.getDouble("uocmo"));
