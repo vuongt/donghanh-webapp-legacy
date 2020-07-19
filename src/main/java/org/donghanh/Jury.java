@@ -250,7 +250,7 @@ public class Jury extends HttpServlet {
       return;
     }
     Cookie cookie = cookies[0];
-    if (!(cookie.getName().equals("Validated") && cookie.getValue().equals("OKJury"))) {
+    if (!(cookie.getName().equals("Validated"))) {
       RequestDispatcher rs = request.getRequestDispatcher("/Login.html");
       rs.forward(request, response);
       return;
