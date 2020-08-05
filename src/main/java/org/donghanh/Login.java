@@ -16,61 +16,39 @@ import java.io.PrintWriter;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
   private static final long serialVersionUID = 1L;
+  private static final int COOKIE_MAX_AGE_SECONDS = 60 * 60 * 24 * 365;
 
   public Login() {
     super();
   }
 
   static void logIn(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    Cookie[] cookies = request.getCookies();
-
-    System.out.println(cookies == null);
-    if (cookies != null)
-      System.out.println(cookies[0].getValue());
-
     response.setContentType("text/html;charset=UTF-8");
-
     PrintWriter out = response.getWriter();
-
-    Cookie cookie;
-
-    if (cookies == null) {
-      Cookie userCookie = new Cookie("Validated", "KO");
-      userCookie.setMaxAge(0);
-      response.addCookie(userCookie);
-    } else {
-      cookie = cookies[0];
-      cookie.setValue("KO");
-      cookie.setMaxAge(0);
-      response.addCookie(cookie);
-    }
 
     String name = request.getParameter("email");
     String pass = request.getParameter("pass");
 
+    Cookie cookie = new Cookie("Validated", "KO");
+    cookie.setMaxAge(COOKIE_MAX_AGE_SECONDS);
+    String redirectPage = "Login.html";
+
     if (Validate.checkUser(name, pass, "admin")) {
-      cookie = new Cookie("Validated", "OK");
-      cookie.setMaxAge(60 * 60 * 24 * 365);
-      response.addCookie(cookie);
-      RequestDispatcher rs = request.getRequestDispatcher("Center.html");
-      rs.forward(request, response);
+      cookie.setValue("OK");
+      redirectPage = "Center.html";
     } else if (Validate.checkUser(name, pass, "jury")) {
-      cookie = new Cookie("Validated", "OKJury");
-      cookie.setMaxAge(60 * 60 * 24 * 365);
-      response.addCookie(cookie);
-      RequestDispatcher rs = request.getRequestDispatcher("Jury.html");
-      rs.forward(request, response);
+      cookie.setValue("OKJury");
+      redirectPage = "Jury.html";
     } else if (Validate.checkUser(name, pass, "techies")) {
-      cookie = new Cookie("Validated", "OKTechies");
-      cookie.setMaxAge(60 * 60 * 24 * 365);
-      response.addCookie(cookie);
-      RequestDispatcher rs = request.getRequestDispatcher("Techies.html");
-      rs.forward(request, response);
+      cookie.setValue("OKTechies");
+      redirectPage = "Techies.html";
     } else {
       out.println("Username or Password incorrect");
-      RequestDispatcher rs = request.getRequestDispatcher("Login.html");
-      rs.forward(request, response);
+
     }
+    response.addCookie(cookie);
+    RequestDispatcher rs = request.getRequestDispatcher(redirectPage);
+    rs.forward(request, response);
   }
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
