@@ -133,7 +133,7 @@ public class Parameters extends HttpServlet {
     UNIVERSITY_NAMES.put("SPKTHCM", "Trường đại học Sư phạm kĩ thuật TP Hồ Chí Minh");
 //    UNIVERSITY_NAMES.put("CTHO", "Trường đại học Cần Thơ");
     UNIVERSITY_NAMES.put("KHAC", "Các trường đại học khác");
-    UNIVERSITY_NAMES.put("THPT_VINH", "Trường THPT Vinh");
+    UNIVERSITY_NAMES.put("THPT-VINH", "Trường THPT Vinh");
 //    UNIVERSITY_NAMES.put("KHUE", "Các trường THPT tại Thừa Thiên Huế");
 //    UNIVERSITY_NAMES.put("KHHCM", "Các trường THPT tại TP Hồ Chí Minh");
 //    UNIVERSITY_NAMES.put("KNA1", "Trường THPT chuyên Phan Bội Châu - Nghệ An");
@@ -160,7 +160,7 @@ public class Parameters extends HttpServlet {
     FOUNDATION_NAMES.put("SPKTHCM", "học bổng Đồng Hành Korea");
 //    FOUNDATION_NAMES.put("CTHO", "học bổng Đồng Hành Đài Loan");
     FOUNDATION_NAMES.put("KHAC", "học bổng Đồng Hành");
-    FOUNDATION_NAMES.put("THPT_VINH", "học bổng Đồng Hành - Nghệ Tĩnh");
+    FOUNDATION_NAMES.put("THPT-VINH", "học bổng Đồng Hành - Nghệ Tĩnh");
 //    FOUNDATION_NAMES.put("KHUE", "học bổng Đồng Hành");
 //    FOUNDATION_NAMES.put("KHHCM", "học bổng Đồng Hành");
 //    FOUNDATION_NAMES.put("KNA1", "học bổng Đồng Hành - FEA Ketterlé");
@@ -214,7 +214,7 @@ public class Parameters extends HttpServlet {
     EVALUATED_BY.put("SPKTHCM", "FR");
 //    EVALUATED_BY.put("CTHO", "TW");
     EVALUATED_BY.put("KHAC", "FR");
-    EVALUATED_BY.put("THPT_VINH", "FR");
+    EVALUATED_BY.put("THPT-VINH", "FR");
 //    EVALUATED_BY.put("KHUE", "FR");
 //    EVALUATED_BY.put("KHHCM", "FR");
 //    EVALUATED_BY.put("KNA1", "FR");
@@ -241,7 +241,7 @@ public class Parameters extends HttpServlet {
     LOGO.put("SPKTHCM", PARAMS.get("LOGO_DH"));
 //    LOGO.put("CTHO", PARAMS.get("LOGO_DH"));
     LOGO.put("KHAC", PARAMS.get("LOGO_DH"));
-    LOGO.put("THPT_VINH", PARAMS.get("LOGO_DH"));
+    LOGO.put("THPT-VINH", PARAMS.get("LOGO_DH"));
 //    LOGO.put("KHUE", PARAMS.get("LOGO_DH"));
 //    LOGO.put("KHHCM", PARAMS.get("LOGO_DH"));
 //    LOGO.put("KNA1", PARAMS.get("LOGO_KETTER"));
@@ -268,7 +268,7 @@ public class Parameters extends HttpServlet {
     VN_COEFS.put("SPKTHCM", 0.0);
 //    VN_COEFS.put("CTHO", 0.0);
     VN_COEFS.put("KHAC", 0.0);
-    VN_COEFS.put("THPT_VINH", 0.0);
+    VN_COEFS.put("THPT-VINH", 0.0);
 //    VN_COEFS.put("KHUE", 0.0);
 //    VN_COEFS.put("KHHCM", 0.0);
 //    VN_COEFS.put("KNA1", 0.0);
@@ -295,7 +295,7 @@ public class Parameters extends HttpServlet {
     NB_JUGES_BY_COPY.put("SPKTHCM", 3);
 //    NB_JUGES_BY_COPY.put("CTHO", 4);
     NB_JUGES_BY_COPY.put("KHAC", 3);
-    NB_JUGES_BY_COPY.put("THPT_VINH", 3);
+    NB_JUGES_BY_COPY.put("THPT-VINH", 3);
 //    NB_JUGES_BY_COPY.put("KHUE", 3);
 //    NB_JUGES_BY_COPY.put("KHHCM", 3);
 //    NB_JUGES_BY_COPY.put("KNA1", 3);
@@ -322,7 +322,7 @@ public class Parameters extends HttpServlet {
     MAX_DOCS.put("SPKTHCM", 18);
 //    MAX_DOCS.put("CTHO", 10);
     MAX_DOCS.put("KHAC", 18);
-    MAX_DOCS.put("THPT_VINH", 18);
+    MAX_DOCS.put("THPT-VINH", 18);
 //    MAX_DOCS.put("KHUE", 18);
 //    MAX_DOCS.put("KHHCM", 18);
 //    MAX_DOCS.put("KNA1", 18);
