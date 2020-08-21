@@ -46,7 +46,7 @@
                             <tr>
                                 <td>${uni.code}</td>
                                 <td><input class="form-control" type='text' id='UniversityName_${uni.code}' value='${uni.name}'></input></td>
-                                <td><input class="form-control" type='text' id='FoundationName_${uni.code}' value='${uni.code}'></input></td>
+                                <td><input class="form-control" type='text' id='FoundationName_${uni.code}' value='${uni.foundation}'></input></td>
                                 <td><input class="form-control" type='text' id='StudentClass_${uni.code}' value='${uni.studentClass}'></input></td>
                                 <td><input class="form-control" type='text' id='EvaluatedBy_${uni.code}' value='${uni.evaluatedBy}'></input></td>
                                 <td><input class="form-control" type='text' id='Logo_${uni.code}' value='${uni.logo}'></input></td>
@@ -69,7 +69,7 @@
                             <tr>
                                 <td>${uni.code}</td>
                                 <td><input class="form-control" type='text' id='UniversityName_${uni.code}' value='${uni.name}'></input></td>
-                                <td><input class="form-control" type='text' id='FoundationName_${uni.code}' value='${uni.code}'></input></td>
+                                <td><input class="form-control" type='text' id='FoundationName_${uni.code}' value='${uni.foundation}'></input></td>
                                 <td><input class="form-control" type='text' id='StudentClass_${uni.code}' value='${uni.studentClass}'></input></td>
                                 <td><input class="form-control" type='text' id='EvaluatedBy_${uni.code}' value='${uni.evaluatedBy}'></input></td>
                                 <td><input class="form-control" type='text' id='Logo_${uni.code}' value='${uni.logo}'></input></td>

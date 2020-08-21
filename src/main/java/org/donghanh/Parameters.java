@@ -615,6 +615,7 @@ public class Parameters extends HttpServlet {
     for (String key : FOUNDATION_NAMES.keySet()) {
       Map<String, Object> university = new HashMap<>();
       university.put("code", key);
+      university.put("foundation", FOUNDATION_NAMES.get(key));
       university.put("name", UNIVERSITY_NAMES.get(key));
       university.put("studentClass", STUDENT_CLASS.get(key));
       university.put("evaluatedBy", EVALUATED_BY.get(key));
