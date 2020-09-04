@@ -21,11 +21,46 @@
     <div class="container-fluid">
         <div class="row">
             <main role="main" class="col-md-12 ml-sm-auto col-lg-12 pt-3 px-4">
-            <%@ include file="components/back-dashboard.jsp" %>
-            <br>
-            <div class="alert alert-danger" role="alert">
-              Lưu ý: điểm phải là một số nguyên, hoặc số thập phân với dấu CHẤM. Dấu phẩy không được chấp nhận.
-            </div>
+                    <h1 align="center">Bảng tổng kết</h1>
+        <h3 align="center">Hệ số giám khảo 0 (VN): ${bilan.vnCoef} - Tổng hệ số các giám khảo ${bilan.evaluatedBy}: ${1 - bilan.vnCoef}</h3>
+        <table class="table table-bordered table-hover" id='table_${university}_bilan'>
+            <thead class="table-primary">
+                <th>Mã số</th>
+                <th>Họ</th>
+                <th>Tên</th>
+                <c:forEach items="${bilan.juryNames}" var="juryName">
+                <th>${juryName}</th>
+                </c:forEach>
+                <th>Điểm tổng kết</th>
+                <th>Chọn</th>
+            </thead>
+            <c:forEach items="${bilan.candidates}" var="candidate">
+            <tr>
+                <td>${candidate.code}</td>
+                <td>${candidate.last_name}</td>
+                <td>${candidate.first_name}</td>
+                <c:forEach items="${candidate.scores}" var="score">
+                <td>${score}</td>
+                </c:forEach>
+                <td><b>${candidate.finalScore}</b></td>
+                <c:if test = "${candidate.selected}">
+                <td><input type='checkbox' class='selected' id='selected_${candidate.code}' checked></td>
+                </c:if>
+                <c:if test = "${!candidate.selected}">
+                <td><input type='checkbox' class='selected' id='selected_${candidate.code}'></td>
+                </c:if>
+            </tr>
+            </c:forEach>
+        </table>
+        <div class="row justify-content-end">
+                <div class="col-2">
+                    <a id='confirm_link_final' href=''></a>
+                </div>
+                <div class="col-2">
+                    <button class="btn btn-success btn-block" onclick='update_selection_results("${university}")'>Duyệt kết quả</button>
+                </div>
+              </div>
+
                 <c:if test = "${nbJudges == 0}">
                 <h1>Chưa có người chấm<h1>
                 </c:if>
@@ -116,48 +151,6 @@
              <br>
              <br>
         </c:forEach>
-    </c:if>
-
-    <c:if test = "${userProfile == 'ADMIN' || userProfile == 'SUPER_USER'}">
-        <h1 align="center">Bảng tổng kết</h1>
-        <h3 align="center">Hệ số giám khảo 0 (VN): ${bilan.vnCoef} - Tổng hệ số các giám khảo ${bilan.evaluatedBy}: ${1 - bilan.vnCoef}</h3>
-        <table class="table table-bordered table-hover" id='table_${university}_bilan'>
-            <thead class="table-primary">
-                <th>Mã số</th>
-                <th>Họ</th>
-                <th>Tên</th>
-                <c:forEach items="${bilan.juryNames}" var="juryName">
-                <th>${juryName}</th>
-                </c:forEach>
-                <th>Điểm tổng kết</th>
-                <th>Chọn</th>
-            </thead>
-            <c:forEach items="${bilan.candidates}" var="candidate">
-            <tr>
-                <td>${candidate.code}</td>
-                <td>${candidate.last_name}</td>
-                <td>${candidate.first_name}</td>
-                <c:forEach items="${candidate.scores}" var="score">
-                <td>${score}</td>
-                </c:forEach>
-                <td><b>${candidate.finalScore}</b></td>
-                <c:if test = "${candidate.selected}">
-                <td><input type='checkbox' class='selected' id='selected_${candidate.code}' checked></td>
-                </c:if>
-                <c:if test = "${!candidate.selected}">
-                <td><input type='checkbox' class='selected' id='selected_${candidate.code}'></td>
-                </c:if>
-            </tr>
-            </c:forEach>
-        </table>
-        <div class="row justify-content-end">
-                <div class="col-2">
-                    <a id='confirm_link_final' href=''></a>
-                </div>
-                <div class="col-2">
-                    <button class="btn btn-success btn-block" onclick='update_selection_results("${university}")'>Duyệt kết quả</button>
-                </div>
-              </div>
     </c:if>
 
     <%@ include file="components/footer.jsp" %>

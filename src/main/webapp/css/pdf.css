@@ -1,0 +1,67 @@
+body {
+   	font-family: "Times New Roman";
+ 	font-size: 14px;
+}
+
+h1 {
+	font-family: "Times New Roman";
+    	font-weight:bold;
+	font-size: 16px;
+    	text-align: center;
+}
+
+h2 {
+	font-family: "Times New Roman";
+    	font-weight:bold;
+	font-size: 16px;
+    	text-align: center;
+	color: white;
+}
+
+h4 {
+	font-family: "Times New Roman";
+	font-size: 14px;
+    	font-weight:bold;
+}
+
+h5 {
+	font-family: "Times New Roman";
+	font-size: 14px;
+	text-align: right;
+    	font-weight:bold;
+}
+
+p {
+    	font-family: "Times New Roman";
+    	font-size: 14px;
+}
+
+table, th, td {
+	border: 0.5px solid black;
+}
+
+table {
+ 	border-collapse: collapse;
+}
+
+th {
+	font-family: "Times New Roman";
+    	height: 30px;
+	font-size: 14px;
+	text-align: center;
+	background-color: #bbb;
+    	font-weight: bold;
+}
+
+td {
+	font-family: "Times New Roman";
+    	height: 26px;
+	font-size: 14px;
+	padding:5px 5px 5px 5px;
+}
+
+img {
+    float: right;
+    margin: 0 0 10px 10px;
+}
+

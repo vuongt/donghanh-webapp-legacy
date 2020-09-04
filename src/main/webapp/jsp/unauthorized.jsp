@@ -9,10 +9,10 @@
 
     <title>${title}</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
 
     <!-- Custom styles for this template -->
-    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet"/>
     <script type="text/javascript" src="normalize.js" ></script>
 
 </head>

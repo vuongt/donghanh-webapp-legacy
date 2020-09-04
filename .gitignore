@@ -4,4 +4,5 @@
 /build/classes/java/main/
 /.idea
 /resources
-/old-html/
+/mysql-data
+/mysql-volume
