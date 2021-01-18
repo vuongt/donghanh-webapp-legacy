@@ -68,9 +68,9 @@ public class Utils {
 
   public static String getJuryDistributionSG(int candidateIndex, int nbJuriesByCopy, int nbGroup, int nbCandidates) {
 
-    int numCandidatesPerGroup = nbCandidates / nbGroup; // except last first group
+    int numCandidatesPerGroup = nbCandidates / nbGroup; // except last group
     // get index of the group this candidate belongs to
-    int groupIndex = candidateIndex / numCandidatesPerGroup;
+    int groupIndex = candidateIndex + 1 / numCandidatesPerGroup;
 
     // Get distribution for all candidate in the current group
     StringBuilder sb = new StringBuilder("G0G"); // gk viet nam

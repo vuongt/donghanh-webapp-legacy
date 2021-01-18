@@ -65,7 +65,7 @@
                                 <td>${uni.code()}</td>
                                 <td>
                                     <input class="form-control" type="hidden" required name='${uni.code()}' value='submit'></input>
-                                    <input class="form-control" type='text' required name='${uni.code()}_name' value='${uni.name}'></input>
+                                    <input class="form-control" type='text' required name='${uni.code()}_name' value='${uni.name()}'></input>
                                 </td>
                                 <td><input class="form-control" type='text' required name='${uni.code()}_foundation' value='${uni.foundationName()}'></input></td>
                                 <td><input class="form-control" type='text' required name='${uni.code()}_studentClass' value='${uni.studentClass()}'></input></td>
