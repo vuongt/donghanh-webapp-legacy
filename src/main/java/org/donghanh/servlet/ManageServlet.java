@@ -86,7 +86,7 @@ public class ManageServlet extends HttpServlet {
     List<Integer> candidateCodes = getCandidateCodes(university);
     UniversityParams uniParams = getUniversityParams(university);
 
-    for (int index = 0; index < candidateCodes.size(); ++index) {
+    for (int index = 0; index < candidateCodes.size(); index++) {
       String juryDistribution;
       if (uniParams.evaluatedBy().equals("SG")) {
         juryDistribution = getJuryDistributionSG(index, uniParams.nbJuriesByCopy(), uniParams.nbJuries(), candidateCodes.size());
