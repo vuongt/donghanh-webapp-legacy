@@ -221,6 +221,42 @@
                 </div>
                 <div class="col-md-4"></div>
             </div>
+            </br>
+            </br>
+
+            <!--            Reset dữ liệu sinh viên theo trường-->
+            <div id="activate"
+                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h2 class="h2 text-primary">Reset dữ liệu sinh viên theo trường</h2>
+            </div>
+            <div id="activate"
+                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                <h5 class="h5 text-danger">Are you sure ?
+                   </br>
+                   By clicking on the university name,
+                you will reset all data related to that university in the database, including jury evaluation data.
+                Be sure that you know what you are doing.</h5>
+            </div>
+
+            <c:forEach items="${locationToTitle}" var="location">
+                <div id="activate-${location.key}"
+                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                    <h4 class="h4">${location.value}</h4>
+                </div>
+                <div class="row">
+                    <c:forEach items="${locationToColumns.get(location.key)}" var="column">
+                        <div class="col-md-6">
+                            <div class="list-group">
+                            <c:forEach items="${column}" var="university">
+                                <a class="list-group-item list-group-item-action" href='manage?action=reset&university=${university.code()}'>${university.name()}</a>
+                            </c:forEach>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+                <br>
+            </c:forEach>
+
             </c:if>
 
             <%@ include file="components/footer.jsp" %>

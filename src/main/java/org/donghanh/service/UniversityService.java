@@ -1,5 +1,6 @@
 package org.donghanh.service;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException;
 import org.donghanh.common.Constants;
 import org.donghanh.common.UniversityParams;
 
@@ -20,7 +21,7 @@ public class UniversityService {
 
   public static int getNbCandidates(String university) {
     try (Connection conn = getConnection();
-         Statement statement = conn.createStatement();) {
+         Statement statement = conn.createStatement()) {
       ResultSet resultSet = statement.executeQuery(
           "SELECT count(*) AS nb FROM all_candidates_" + university);
       resultSet.next();
@@ -92,6 +93,8 @@ public class UniversityService {
             .build();
         universityParamsMap.put(rs.getString("Code"), uniParams);
       }
+    } catch (MySQLSyntaxErrorException e) {
+      System.out.println("University table hasn't been created yet");
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -159,5 +162,24 @@ public class UniversityService {
       }
     }
     return locationToColumns;
+  }
+
+  public static void resetUniversity(String university) {
+    try (Connection conn = getConnection();
+         Statement stmt = conn.createStatement()) {
+      String sql = "SHOW TABLES";
+      ResultSet rs = stmt.executeQuery(sql);
+      List<String> allTables = new ArrayList<>();
+      while (rs.next()) {
+        allTables.add(rs.getString("Tables_in_test"));
+      }
+      for (String table : allTables) {
+        if (table.contains(university)) {
+          stmt.executeUpdate("DROP TABLE " + table);
+        }
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
   }
 }

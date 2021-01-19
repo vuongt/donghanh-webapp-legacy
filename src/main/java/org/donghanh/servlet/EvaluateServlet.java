@@ -93,10 +93,14 @@ public class EvaluateServlet extends HttpServlet {
 
     Map<String, String> juries = juriesCodeToName();
     List<String> juryNames = new ArrayList<>();
-    for (int count = 0; count <= nbJuries; ++count) {
+    for (int count = 0; count <= nbJuries; count++) {
+      String defaultName = "GK " + count;
       if (juries.containsKey(university + "_" + count)) {
-        String juryName = juries.get(university + "_" + count).equals("") ? "GK " + count : juries.get(university + "_" + count);
+        String juryName = juries.get(university + "_" + count).equals("")
+            ? defaultName : juries.get(university + "_" + count);
         juryNames.add(juryName);
+      } else {
+        juryNames.add(defaultName);
       }
     }
     bilan.put("juryNames", juryNames);

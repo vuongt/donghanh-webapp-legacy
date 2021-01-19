@@ -67,16 +67,21 @@ public class Utils {
   }
 
   public static String getJuryDistributionSG(int candidateIndex, int nbJuriesByCopy, int nbGroup, int nbCandidates) {
-
     int numCandidatesPerGroup = nbCandidates / nbGroup; // except last group
+
     // get index of the group this candidate belongs to
-    int groupIndex = candidateIndex + 1 / numCandidatesPerGroup;
+    // candidateIndex starts from 0
+    // group index starts from 0
+    int groupIndex = candidateIndex / numCandidatesPerGroup;
+    if (groupIndex >= nbGroup) {
+      groupIndex = nbGroup - 1;
+    }
 
     // Get distribution for all candidate in the current group
-    StringBuilder sb = new StringBuilder("G0G"); // gk viet nam
+    StringBuilder sb = new StringBuilder("G0G"); // gk vietnam
     // numJuriesPerCopy = num of juries per group
-    for (int juryIndexInGroup = 0; juryIndexInGroup < nbJuriesByCopy; juryIndexInGroup++) {
-      int currentJury = groupIndex * nbJuriesByCopy + juryIndexInGroup + 1;
+    for (int juryIndexInGroup = 1; juryIndexInGroup <= nbJuriesByCopy; juryIndexInGroup++) {
+      int currentJury = groupIndex * nbJuriesByCopy + juryIndexInGroup;
       sb.append(currentJury).append("G");
     }
     return sb.toString();

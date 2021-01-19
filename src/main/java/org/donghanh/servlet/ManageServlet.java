@@ -47,6 +47,9 @@ public class ManageServlet extends HttpServlet {
       case "activate":
         activateUniversityData(request, response);
         break;
+      case "reset":
+        resetUniversityData(request, response);
+        break;
       case "result":
         if (university == null) {
           downloadAllNotifs(response);
@@ -80,6 +83,13 @@ public class ManageServlet extends HttpServlet {
     distributeJuryCandidate(university);
     request.getRequestDispatcher("candidate?university=" + university)
         .forward(request, response);
+  }
+
+  private void resetUniversityData(HttpServletRequest request, HttpServletResponse response)
+      throws ServletException, IOException {
+    String university = request.getParameter("university");
+    resetUniversity(university);
+    request.getRequestDispatcher("dashboard").forward(request, response);
   }
 
   private static void distributeJuryCandidate(String university) {
