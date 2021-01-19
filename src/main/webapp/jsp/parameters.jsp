@@ -82,6 +82,35 @@
                 <input class="btn btn-primary" type='submit'></input>
                 </form>
 
+                <h1 class="h1 p-3" align="center">Tham số DH Korea</h1>
+                <form action="parameter" method="post">
+                <table class="table table-bordered table-hover" border="1" align="center">
+                    <thead class="table-primary">
+                        <th>Mã trường</th><th>Tên trường</th><th>Tên quỹ học bổng</th><th>Đối tượng</th><th>Nơi chấm</th><th>Logo</th><th>Hệ số VN</th><th>Số gk/hồ sơ</th><th>Tổng số giám khảo</th>
+                    </thead>
+                    <c:forEach items="${universityParams}" var="uni">
+                        <c:if test = "${uni.evaluatedBy() == 'KR'}">
+                            <tr>
+                                <td>${uni.code()}</td>
+                                <td>
+                                    <input class="form-control" type="hidden" required name='${uni.code()}' value='submit'></input>
+                                    <input class="form-control" type='text' required name='${uni.code()}_name' value='${uni.name()}'></input>
+                                </td>
+                                <td><input class="form-control" type='text' required name='${uni.code()}_foundation' value='${uni.foundationName()}'></input></td>
+                                <td><input class="form-control" type='text' required name='${uni.code()}_studentClass' value='${uni.studentClass()}'></input></td>
+                                <td><input class="form-control" type='text' required name='${uni.code()}_evaluatedBy' value='${uni.evaluatedBy()}'></input></td>
+                                <td><input class="form-control" type='text' required name='${uni.code()}_logo' value='${uni.logo()}'></input></td>
+                                <td><input class="form-control" type='number' step='0.1' required name='${uni.code()}_vnCoef' value='${uni.vnCoef()}'></input></td>
+                                <td><input class="form-control" type='number' required name='${uni.code()}_nbJuriesByCopy' value='${uni.nbJuriesByCopy()}'></input></td>
+                                <td><input class="form-control" type='number' required name='${uni.code()}_nbJuries' value='${uni.nbJuries()}'></input></td>
+                            </tr>
+                        </c:if>
+                    </c:forEach>
+                </table>
+                <input class="form-control" type="hidden" name='action' value='updateUniversityParams'></input>
+                <input class="btn btn-primary" type='submit'></input>
+                </form>
+
                 <h1 class="h1 p-3" align="center">Cài đặt</h1>
                 <form action="parameter" method="post">
                 <table class="table table-bordered table-hover" border="1" align="center">
