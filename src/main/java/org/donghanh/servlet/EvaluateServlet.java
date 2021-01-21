@@ -59,13 +59,13 @@ public class EvaluateServlet extends HttpServlet {
 
     List<Map<String, Object>> juries = new ArrayList<>();
     for (int juryIndex = 0; juryIndex <= nbJuries; ++juryIndex) {
+      Map<String, Object> juryScoreDetails = getJuryScoreDetails(juryIndex, university);
       Map<String, Object> juryData = new HashMap<>();
       juryData.put("index", juryIndex);
       juryData.put("name", juriesCodeToName.get(university + "_" + juryIndex));
-      juryData.put("candidates", getAllCandidatesScoresForJury(juryIndex, university));
-      juryData.put("average", getAverageScoreForJury(juryIndex, university));
-      juryData.put("stddev", getStdDevForJury(juryIndex, university));
-
+      juryData.put("candidates", juryScoreDetails.get("allCandidatesScores"));
+      juryData.put("average", juryScoreDetails.get("average"));
+      juryData.put("stddev", juryScoreDetails.get("stdev"));
       juries.add(juryData);
     }
     request.setAttribute("juries", juries);
@@ -89,7 +89,8 @@ public class EvaluateServlet extends HttpServlet {
     bilan.put("vnCoef", universityParams.vnCoef);
     bilan.put("evaluatedBy", universityParams.evaluatedBy);
 
-    recreateBilanAndSelectedTable(universityParams.code, nbJuries, universityParams.vnCoef);
+    List<Map<String, Object>> candidateFinalScores = recreateBilan(universityParams.code, nbJuries, universityParams.vnCoef);
+    bilan.put("candidates", candidateFinalScores);
 
     Map<String, String> juries = juriesCodeToName();
     List<String> juryNames = new ArrayList<>();
@@ -104,7 +105,6 @@ public class EvaluateServlet extends HttpServlet {
       }
     }
     bilan.put("juryNames", juryNames);
-    bilan.put("candidates", getFinalScores(university, nbJuries));
     return bilan;
   }
 

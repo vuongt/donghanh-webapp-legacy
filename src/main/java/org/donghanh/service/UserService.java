@@ -19,7 +19,7 @@ public class UserService {
       ResultSet rs = ps.executeQuery();
       isValid = rs.next();
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     return isValid;
   }

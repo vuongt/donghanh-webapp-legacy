@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import static org.donghanh.common.Constants.PARAM_DEFAULT;
-import static org.donghanh.db.DBCPDataSource.getConnection;
+import static org.donghanh.db.MainDataSource.getConnection;
 
 public class ParameterService {
 
@@ -27,7 +27,7 @@ public class ParameterService {
         params.put(rs.getString("Param"), rs.getString("Value"));
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     return params;
   }
@@ -45,7 +45,7 @@ public class ParameterService {
       }
 
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 
@@ -74,7 +74,7 @@ public class ParameterService {
       stmt.execute(sql);
 
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 
@@ -86,7 +86,7 @@ public class ParameterService {
             + paramValue + "' WHERE " + "Param = " + "'" + paramName + "'");
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 

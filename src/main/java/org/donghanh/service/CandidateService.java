@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.Map;
 
 import static org.donghanh.common.Constants.CANDIDATE_TABLE_NAME;
-import static org.donghanh.db.DBCPDataSource.getConnection;
+import static org.donghanh.db.MainDataSource.getConnection;
 
 public class CandidateService {
 
@@ -59,7 +59,7 @@ public class CandidateService {
       stmt.execute(sql);
 
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 

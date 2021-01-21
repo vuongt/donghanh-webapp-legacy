@@ -15,7 +15,7 @@ import java.util.Map;
 
 import static java.lang.Math.max;
 import static org.donghanh.common.Constants.CANDIDATE_TABLE_NAME;
-import static org.donghanh.db.DBCPDataSource.getConnection;
+import static org.donghanh.db.MainDataSource.getConnection;
 
 public class UniversityService {
 
@@ -27,7 +27,7 @@ public class UniversityService {
       resultSet.next();
       return resultSet.getInt("nb");
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     return 0;
   }
@@ -43,7 +43,7 @@ public class UniversityService {
           + commonParams.get("CURRENT_SEMESTER") + " AND `Truong` = '" + university + "');";
       stmt.execute(sql);
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 
@@ -57,7 +57,7 @@ public class UniversityService {
         candidateCodes.add(rs.getInt("Ma so"));
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     return candidateCodes;
   }
@@ -68,7 +68,7 @@ public class UniversityService {
       stmt.execute("UPDATE all_candidates_" + university + " SET `Phan phoi giam khao`='"
           + juryDistribution + "' WHERE `Ma so`='" + candidateCode + "';");
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 
@@ -96,7 +96,7 @@ public class UniversityService {
     } catch (MySQLSyntaxErrorException e) {
       System.out.println("University table hasn't been created yet");
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     return universityParamsMap;
   }
@@ -119,7 +119,7 @@ public class UniversityService {
           .foundation(Constants.Foundation.valueOf(rs.getString("EvaluatedBy")))
           .build();
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
       return new UniversityParams.Builder().build();
     }
   }
@@ -135,7 +135,7 @@ public class UniversityService {
         codes.add(rs.getString("Code"));
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     return codes;
   }
@@ -179,7 +179,7 @@ public class UniversityService {
         }
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 }

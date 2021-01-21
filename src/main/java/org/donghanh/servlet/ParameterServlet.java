@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Map;
 
-import static org.donghanh.db.DBCPDataSource.getConnection;
+import static org.donghanh.db.MainDataSource.getConnection;
 
 @WebServlet("/app/parameter")
 public class ParameterServlet extends HttpServlet {
@@ -61,7 +61,7 @@ public class ParameterServlet extends HttpServlet {
             + request.getParameter(paramKey) + "' WHERE " + "Param = " + "'" + paramKey + "'");
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 
@@ -85,7 +85,7 @@ public class ParameterServlet extends HttpServlet {
         }
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
   }
 

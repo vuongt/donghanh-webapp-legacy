@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.donghanh.common.Constants.CANDIDATE_TABLE_NAME;
-import static org.donghanh.db.DBCPDataSource.getConnection;
+import static org.donghanh.db.MainDataSource.getConnection;
 
 @WebServlet("/app/candidate")
 public class CandidateServlet extends HttpServlet {
@@ -68,7 +68,7 @@ public class CandidateServlet extends HttpServlet {
         candidates.add(candidate);
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     request.setAttribute("candidates", candidates);
     request.getRequestDispatcher("/jsp/candidates.jsp").forward(request, response);
@@ -91,7 +91,7 @@ public class CandidateServlet extends HttpServlet {
         candidates.add(candidate);
       }
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     request.setAttribute("candidates", candidates);
     request.getRequestDispatcher("/jsp/candidates-simple.jsp").forward(request, response);

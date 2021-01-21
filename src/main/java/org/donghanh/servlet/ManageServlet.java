@@ -29,8 +29,8 @@ import java.util.List;
 import java.util.Map;
 
 import static org.donghanh.common.Constants.FONT;
-import static org.donghanh.db.DBCPDataSource.getConnection;
-import static org.donghanh.service.JuryService.getAllCandidatesScoresForJury;
+import static org.donghanh.db.MainDataSource.getConnection;
+import static org.donghanh.service.JuryService.getAllCandidatesForJury;
 import static org.donghanh.service.ParameterService.getCommonParams;
 import static org.donghanh.service.UniversityService.*;
 import static org.donghanh.utils.Utils.*;
@@ -137,7 +137,7 @@ public class ManageServlet extends HttpServlet {
       pdfWriter.close();
 
     } catch (IOException | DocumentException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
 
     String downloadLink = "http://" + Constants.IP + "/evalforms/" + university
@@ -157,7 +157,7 @@ public class ManageServlet extends HttpServlet {
       rs.next();
       nbCandidates = rs.getInt("nb");
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
 
     if (nbCandidates == 0) {
@@ -271,7 +271,7 @@ public class ManageServlet extends HttpServlet {
       writer.println("<h5>" + commonParams.get("SIGNATURE_NAME_" + foundation)
           + tabs("&nbsp;", 11) + "</h5>");
     } catch (SQLException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
     writer.println("</body>");
     writer.println("</html>");
@@ -295,7 +295,7 @@ public class ManageServlet extends HttpServlet {
     try {
       ut.mergeDocuments();
     } catch (COSVisitorException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
 
     String downloadLink = "http://" + Constants.IP + "/evalforms/FinalNotification.pdf";
@@ -338,7 +338,7 @@ public class ManageServlet extends HttpServlet {
         outputFiles.add(destination);
 
       } catch (IOException | DocumentException e) {
-        e.printStackTrace();
+        e.getMessage();
       }
     }
     String finalEvalFormRelativePath = "evalforms/" + university + "/eval_form.pdf";
@@ -347,7 +347,7 @@ public class ManageServlet extends HttpServlet {
       return finalEvalFormRelativePath;
     } catch (COSVisitorException e) {
       // todo handle error here
-      e.printStackTrace();
+      e.getMessage();
       return null;
     }
   }
@@ -382,7 +382,7 @@ public class ManageServlet extends HttpServlet {
     writer.println("</tr>");
 
 
-    List<Map<String, Object>> candidates = getAllCandidatesScoresForJury(juryIndex, university);
+    List<Map<String, Object>> candidates = getAllCandidatesForJury(juryIndex, university);
 
     for (Map<String, Object> candidate : candidates) {
       writer.println("<tr>");
@@ -422,7 +422,7 @@ public class ManageServlet extends HttpServlet {
     try {
       mergePdfs(sourceFiles, destinationFileName);
     } catch (COSVisitorException e) {
-      e.printStackTrace();
+      e.getMessage();
     }
 
     // todo put this in a string format constant
