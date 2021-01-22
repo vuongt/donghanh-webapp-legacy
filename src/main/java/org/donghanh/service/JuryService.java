@@ -1,6 +1,7 @@
 package org.donghanh.service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.UnsupportedEncodingException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -237,9 +238,15 @@ public class JuryService {
   }
 
   public static void saveEvaluation(HttpServletRequest request) {
+    try {
+      request.setCharacterEncoding("UTF-8");
+    } catch (UnsupportedEncodingException ignored) {
+      // ignored
+    }
     String juryIndex = request.getParameter("juryIndex");
     String university = request.getParameter("university");
     String juryName = request.getParameter("juryName");
+    System.out.println(juryName);
 
     try (Connection conn = getConnection();
          Statement stmt = conn.createStatement()) {

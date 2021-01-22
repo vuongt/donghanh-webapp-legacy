@@ -20,7 +20,7 @@ import static org.donghanh.utils.Utils.getUserProfile;
 public class DashboardServlet extends HttpServlet {
 
   private static final int NB_COLUMNS = 2;
-  private static Map<String, String> locationToTitle;
+  static Map<String, String> locationToTitle;
 
   static {
     locationToTitle = new HashMap<>();

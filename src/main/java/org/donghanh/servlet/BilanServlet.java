@@ -18,24 +18,22 @@ import static org.donghanh.service.UniversityService.getNbCandidates;
 import static org.donghanh.service.UniversityService.getUniversityParams;
 import static org.donghanh.utils.Utils.nbJuries;
 
-@WebServlet("/app/evaluate")
-public class EvaluateServlet extends HttpServlet {
+@WebServlet("/app/bilan")
+public class BilanServlet extends HttpServlet {
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
-    showEvaluationByProfile(request, response, false);
-    System.out.println("eval get");
+    showBilan(request, response);
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     saveEvaluation(request);
-    showEvaluationByProfile(request, response, false);
-    System.out.println("eval post");
+    showBilan(request, response);
   }
 
-  static void showEvaluationByProfile(HttpServletRequest request, HttpServletResponse response,
-                                      boolean readOnly) throws IOException, ServletException {
+  private void showBilan(HttpServletRequest request, HttpServletResponse response)
+      throws IOException, ServletException {
     String university = request.getParameter("university");
     if (university == null) {
       request.getRequestDispatcher("dashboard").forward(request, response);
@@ -43,36 +41,15 @@ public class EvaluateServlet extends HttpServlet {
     }
 
     UniversityParams uniParams = getUniversityParams(university);
-    request.setAttribute("title", "Danh sách sinh viên " + uniParams.name
-        + " phân chia theo giám khảo");
+    request.setAttribute("title", "Bảng tổng kết trường" + uniParams.name);
 
     int nbCandidates = getNbCandidates(university);
     int nbJuries = nbJuries(nbCandidates, uniParams);
     request.setAttribute("nbJudges", nbJuries);
     request.setAttribute("university", university);
-
-    createAllEvaluationTableIfNotExist(university, nbJuries);
-
-    Map<String, String> juriesCodeToName = juriesCodeToName();
-
-    List<Map<String, Object>> juries = new ArrayList<>();
-    for (int juryIndex = 0; juryIndex <= nbJuries; ++juryIndex) {
-      Map<String, Object> juryScoreDetails = getJuryScoreDetails(juryIndex, university);
-      Map<String, Object> juryData = new HashMap<>();
-      juryData.put("index", juryIndex);
-      juryData.put("name", juriesCodeToName.get(university + "_" + juryIndex));
-      juryData.put("candidates", juryScoreDetails.get("allCandidatesScores"));
-      juryData.put("average", juryScoreDetails.get("average"));
-      juryData.put("stddev", juryScoreDetails.get("stdev"));
-      juries.add(juryData);
-    }
-    request.setAttribute("juries", juries);
-
-    if (readOnly) {
-      request.getRequestDispatcher("/jsp/visitor-result.jsp").forward(request, response);
-    } else {
-      request.getRequestDispatcher("/jsp/evaluate.jsp").forward(request, response);
-    }
+    Map<String, Object> bilan = getBilan(nbJuries, uniParams);
+    request.setAttribute("bilan", bilan);
+    request.getRequestDispatcher("/jsp/bilan.jsp").forward(request, response);
   }
 
   private static Map<String, Object> getBilan(int nbJuries, UniversityParams universityParams) {

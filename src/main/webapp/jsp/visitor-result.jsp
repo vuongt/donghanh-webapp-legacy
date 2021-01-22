@@ -68,7 +68,7 @@
                 <c:if test = "${nbJudges > 0}">
                 <c:forEach items="${juries}" var="jury">
                 <h1 class="h1 p-3" align="center">Danh sách sinh viên được chấm bởi giám khảo ${jury.index}</h1>
-                <form action="evaluate" method="post" id='form_${university}_${jury.index}'>
+                <form action="evaluate" method="post" id='form_${university}_${jury.index}' accept-charset="utf-8">
                 <div class="form-group row justify-content-md-center">
                     <label class="col-sm-2 col-form-label">Họ và tên giám khảo:</label>
                     <div class="col-sm-6">
@@ -168,7 +168,7 @@
         <script src="../js/bootstrap.min.js"></script>
 
         <!-- Icons -->
-        <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+        <script src="../js/feather.min.js"></script>
         <script>feather.replace()</script>
         <script type="text/javascript" src="../normalize.js" ></script>
     </body>

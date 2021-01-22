@@ -72,10 +72,16 @@ public class Utils {
     // get index of the group this candidate belongs to
     // candidateIndex starts from 0
     // group index starts from 0
-    int groupIndex = candidateIndex / numCandidatesPerGroup;
-    if (groupIndex >= nbGroup) {
-      groupIndex = nbGroup - 1;
+    int groupIndex;
+    if (numCandidatesPerGroup == 0) {
+      groupIndex = 0;
+    } else {
+      groupIndex = candidateIndex / numCandidatesPerGroup;
+      if (groupIndex >= nbGroup) {
+        groupIndex = nbGroup - 1;
+      }
     }
+
 
     // Get distribution for all candidate in the current group
     StringBuilder sb = new StringBuilder("G0G"); // gk vietnam

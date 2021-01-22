@@ -1,5 +1,6 @@
 package org.donghanh.servlet;
 
+import org.donghanh.common.UniversityParams;
 import org.donghanh.service.ParameterService;
 
 import javax.servlet.ServletException;
@@ -10,12 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.*;
+import java.util.List;
 import java.util.Map;
 
 import static org.donghanh.service.CandidateService.reloadAllCandidatesData;
 import static org.donghanh.service.JuryService.createJuryTable;
 import static org.donghanh.service.ParameterService.*;
 import static org.donghanh.service.UniversityService.createCandidateTableFor;
+import static org.donghanh.service.UniversityService.getUniversitiesByLocationAndColumns;
+import static org.donghanh.servlet.DashboardServlet.locationToTitle;
 
 @WebServlet("/app/admin")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
@@ -27,6 +31,10 @@ public class AdminServlet extends HttpServlet {
       throws IOException, ServletException {
     String action = request.getParameter("action");
     if (action == null) {
+      request.setAttribute("locationToTitle", locationToTitle);
+      Map<String, List<List<UniversityParams>>> locationToColumns =
+          getUniversitiesByLocationAndColumns(2);
+      request.setAttribute("locationToColumns", locationToColumns);
       request.getRequestDispatcher("/jsp/admin.jsp").forward(request, response);
     } else {
       switch (action) {

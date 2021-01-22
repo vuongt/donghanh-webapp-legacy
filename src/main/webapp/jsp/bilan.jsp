@@ -22,21 +22,7 @@
             <div class="row">
                 <main role="main" class="col-md-12 ml-sm-auto col-lg-12 pt-3 px-4">
                     <%@ include file="components/back-dashboard.jsp" %>
-                    <br>
-                    <div class="alert alert-danger" role="alert">
-                        Lưu ý: điểm phải là một số nguyên, hoặc số thập phân với dấu CHẤM. Dấu phẩy không được chấp nhận.
-                    </div>
-                    <c:if test = "${nbJudges == 0}">
-                        <h1>Chưa có người chấm<h1>
-                    </c:if>
-
-                    <c:if test = "${nbJudges > 0}">
-                        <c:forEach items="${juries}" var="jury">
-                            <%@ include file="evaluate-jury-form.jsp" %>
-                            <br>
-                            <br>
-                        </c:forEach>
-                    </c:if>
+                    <%@ include file="evaluate-bilan.jsp" %>
                     <%@ include file="components/footer.jsp" %>
                 </main>
             </div>

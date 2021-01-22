@@ -90,7 +90,7 @@
 <script src="../js/bootstrap.min.js"></script>
 
 <!-- Icons -->
-<script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+<script src="../feather.min.js"></script>
 <script>feather.replace()</script>
 <script type="text/javascript" src="../normalize.js" ></script>
 

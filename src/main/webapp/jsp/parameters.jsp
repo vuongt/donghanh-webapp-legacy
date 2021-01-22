@@ -24,7 +24,7 @@
             <%@ include file="components/back-dashboard.jsp" %>
                 <br>
                 <h1 class="h1 p-3" align="center">Tham số DH France</h1>
-                <form action="parameter" method="post">
+                <form action="parameter" method="post" accept-charset="utf-8">
                 <table class="table table-bordered table-hover" border="1" align="center">
                     <thead class="table-primary">
                         <th>Mã trường</th><th>Tên trường</th><th>Tên quỹ học bổng</th><th>Đối tượng</th><th>Nơi chấm</th><th>Logo</th><th>Hệ số VN</th><th>Số gk/hồ sơ</th><th>Tổng số giám khảo</th>
@@ -53,7 +53,7 @@
                 </form>
 
                 <h1 class="h1 p-3" align="center">Tham số DH Singapore</h1>
-                <form action="parameter" method="post">
+                <form action="parameter" method="post" accept-charset="utf-8">
                 <table class="table table-bordered table-hover" border="1" align="center">
                     <thead class="table-primary">
                         <th>Mã trường</th><th>Tên trường</th><th>Tên quỹ học bổng</th><th>Đối tượng</th><th>Nơi chấm</th><th>Logo</th><th>Hệ số VN</th><th>Số gk/hồ sơ</th><th>Số nhóm</th>
@@ -83,7 +83,7 @@
                 </form>
 
                 <h1 class="h1 p-3" align="center">Tham số DH Korea</h1>
-                <form action="parameter" method="post">
+                <form action="parameter" method="post" accept-charset="utf-8">
                 <table class="table table-bordered table-hover" border="1" align="center">
                     <thead class="table-primary">
                         <th>Mã trường</th><th>Tên trường</th><th>Tên quỹ học bổng</th><th>Đối tượng</th><th>Nơi chấm</th><th>Logo</th><th>Hệ số VN</th><th>Số gk/hồ sơ</th><th>Tổng số giám khảo</th>
@@ -112,7 +112,7 @@
                 </form>
 
                 <h1 class="h1 p-3" align="center">Cài đặt</h1>
-                <form action="parameter" method="post">
+                <form action="parameter" method="post" accept-charset="utf-8">
                 <table class="table table-bordered table-hover" border="1" align="center">
                     <thead class="table-primary">
                         <th>Tham số</th><th>Giá trị</th>
@@ -145,7 +145,7 @@
             <script src="../js/bootstrap.min.js"></script>
 
             <!-- Icons -->
-            <script src="https://unpkg.com/feather-icons/dist/feather.min.js"></script>
+            <script src="../js/feather.min.js"></script>
             <script>feather.replace()</script>
             <script type="text/javascript" src="../normalize.js" ></script>
 
