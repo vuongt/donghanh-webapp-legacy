@@ -217,7 +217,6 @@
 <!-- Icons -->
 <script src="../js/feather.min.js"></script>
 <script>feather.replace()</script>
-<script type="text/javascript" src="../normalize.js" ></script>
 
 </body>
 </html>

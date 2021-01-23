@@ -13,8 +13,6 @@
 
     <!-- Custom styles for this template -->
     <link href="css/dashboard.css" rel="stylesheet"/>
-    <script type="text/javascript" src="normalize.js" ></script>
-
 </head>
 <body>
 
