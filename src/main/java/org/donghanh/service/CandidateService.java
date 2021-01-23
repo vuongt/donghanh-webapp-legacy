@@ -1,9 +1,11 @@
 package org.donghanh.service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Enumeration;
 import java.util.Map;
 
 import static org.donghanh.common.Constants.CANDIDATE_TABLE_NAME;
@@ -63,9 +65,26 @@ public class CandidateService {
     }
   }
 
-  public static void reloadCandidateDataForUniversity(String university) {
-    reloadAllCandidatesData();
+  public static void saveSelectedCandidates(HttpServletRequest request) {
+    String university = request.getParameter("university");
+    try (Connection conn = getConnection();
+         Statement stmt = conn.createStatement()) {
 
+      Enumeration<String> paramNames = request.getParameterNames();
+      String sql = "UPDATE selected_" + university + " SET selected=0";
+      stmt.execute(sql);
+      while (paramNames.hasMoreElements()) {
+        String currentParam = paramNames.nextElement();
+        if (currentParam.contains("_")) {
+          String candidateId = currentParam.split("_")[1];
+          String selected = request.getParameter(currentParam);
+          sql = "UPDATE selected_" + university + " SET selected=" + selected + " WHERE `Ma so`=" + candidateId;
+          stmt.execute(sql);
+        }
+      }
+    } catch (SQLException e) {
+      e.getMessage();
+    }
   }
 
 }

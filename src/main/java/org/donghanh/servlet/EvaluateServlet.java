@@ -24,14 +24,12 @@ public class EvaluateServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
     showEvaluationByProfile(request, response, false);
-    System.out.println("eval get");
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     saveEvaluation(request);
     showEvaluationByProfile(request, response, false);
-    System.out.println("eval post");
   }
 
   static void showEvaluationByProfile(HttpServletRequest request, HttpServletResponse response,

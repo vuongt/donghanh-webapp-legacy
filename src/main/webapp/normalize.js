@@ -35,11 +35,12 @@ function update_selection_results(university){
 	
 	var s = "";
 	for (var i = 0; i < n; i++){
-		s += "&" + all_results[i].id + "=" + ((all_results[i].checked)?"1":"0");
+	    var candidate_id = all_results[i].id.split("_")[1]
+		s += "&" + candidate_id + "=" + ((all_results[i].checked)?"1":"0");
 	}
 	
-	document.getElementById("confirm_link_final").href = "Edit?action=UPDATE_FINAL_RESULTS&university=" + university + s;
-	document.getElementById("confirm_link_final").innerHTML = "Xác nhận duyệt."
+	document.getElementById("confirm_link_final").href = "bilan?action=UPDATE_SELECTION&university=" + university + s;
+//	document.getElementById("confirm_link_final").innerHTML = "Xác nhận duyệt."
 }
 
 function set_params(key){

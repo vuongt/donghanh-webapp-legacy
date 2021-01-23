@@ -246,7 +246,6 @@ public class JuryService {
     String juryIndex = request.getParameter("juryIndex");
     String university = request.getParameter("university");
     String juryName = request.getParameter("juryName");
-    System.out.println(juryName);
 
     try (Connection conn = getConnection();
          Statement stmt = conn.createStatement()) {

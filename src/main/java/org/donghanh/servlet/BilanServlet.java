@@ -13,7 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.donghanh.service.JuryService.*;
+import static org.donghanh.service.CandidateService.saveSelectedCandidates;
+import static org.donghanh.service.JuryService.juriesCodeToName;
+import static org.donghanh.service.JuryService.recreateBilan;
 import static org.donghanh.service.UniversityService.getNbCandidates;
 import static org.donghanh.service.UniversityService.getUniversityParams;
 import static org.donghanh.utils.Utils.nbJuries;
@@ -28,7 +30,7 @@ public class BilanServlet extends HttpServlet {
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    saveEvaluation(request);
+    saveSelectedCandidates(request);
     showBilan(request, response);
   }
 
