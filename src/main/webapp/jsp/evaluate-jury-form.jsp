@@ -32,13 +32,13 @@
             <td>${candidate.last_name}</td>
             <td>${candidate.first_name}</td>
             <td><input class="form-control" type='number' step='0.1' name='hoancanh_${candidate.code}' value="${candidate.hoancanh}"></td>
-            <td align='right'>${candidate.hoancanh}</td>
+            <td align='right'>${candidate.hoancanhnorm}</td>
             <td><input class="form-control" type='number' step='0.1' name='hoctap_${candidate.code}' value="${candidate.hoctap}"></td>
-            <td align='right'>${candidate.hoctap}</td>
+            <td align='right'>${candidate.hoctapnorm}</td>
             <td><input class="form-control" type='number' step='0.1' name='uocmo_${candidate.code}' value="${candidate.uocmo}"></td>
-            <td align='right'>${candidate.uocmo}</td>
+            <td align='right'>${candidate.uocmonorm}</td>
             <td><input class="form-control" type='number' step='0.1' name='diemcong_${candidate.code}' value="${candidate.diemcong}"></td>
-            <td align='right'>${candidate.diemcong}</td>
+            <td align='right'>${candidate.diemcongnorm}</td>
             <td align='right'><b>${candidate.tongket}</b></td>
             <td align='right'><b>${candidate.tongketnorm}</b></td>
         </tr>

@@ -6,7 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="author" content="Tuyet Vuong - Dong Hanh Asso">
 
         <title>${title}</title>
         <!-- Bootstrap core CSS -->
@@ -22,7 +22,7 @@
             <div class="row">
                 <main role="main" class="col-md-12 ml-sm-auto col-lg-12 pt-3 px-4">
                     <%@ include file="components/back-dashboard.jsp" %>
-                    <%@ include file="evaluate-bilan.jsp" %>
+                    <%@ include file="bilan-table.jsp" %>
                     <%@ include file="components/footer.jsp" %>
                 </main>
             </div>
