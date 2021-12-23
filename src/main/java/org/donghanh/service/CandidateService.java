@@ -1,6 +1,6 @@
 package org.donghanh.service;
 
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.SQLException;

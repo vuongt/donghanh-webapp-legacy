@@ -61,6 +61,7 @@ public final class Constants {
     TNHN("Trường đại học Khoa học tự nhiên, ĐHQG Hà Nội", Foundation.FR, StudentClass.SV),
     GTVT1("Trường đại học Giao thông vận tải, Cơ sở I tại Hà Nội", Foundation.GTVT, StudentClass.SV),
     XD("Trường đại học Xây dựng", Foundation.XD, StudentClass.SV),
+    YHN("Trường đại học Y Hà Nội", Foundation.FR, StudentClass.SV),
     //HCM
     BKHCM("Trường đại học Bách khoa, ĐHQG TP Hồ Chí Minh", Foundation.FR, StudentClass.SV),
     TNHCM("Trường đại học Khoa học tự nhiên, ĐHQG TP Hồ Chí Minh", Foundation.FR, StudentClass.SV),
@@ -155,5 +156,9 @@ public final class Constants {
     FR,
     SG,
     KR
+  }
+
+  private Constants() {
+    // Private constructor so that the class can not be instantiated
   }
 }

@@ -4,8 +4,8 @@ import org.donghanh.common.Constants;
 import org.donghanh.common.Constants.Foundation;
 import org.donghanh.common.UniversityParams;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
