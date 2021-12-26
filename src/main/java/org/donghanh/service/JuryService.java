@@ -24,7 +24,7 @@ public class JuryService {
             + " AS diemcong, '000000' AS diemcongnorm, "
             + "'000000' AS tongket, '000000' AS tongketnorm"
             + " FROM all_candidates_"
-            + university + " WHERE `Phan phoi giam khao` LIKE '%" + juryIndex + "%';";
+            + university + " WHERE `Phan phoi giam khao` LIKE '%G" + juryIndex + "G%';";
         statement.execute(query);
       }
     } catch (SQLException e) {
