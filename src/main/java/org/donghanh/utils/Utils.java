@@ -96,7 +96,7 @@ public class Utils {
   public static String getJuryDistributionFR(int candidateIndex, int nbJuriesByCopy, int nbJuries) {
     StringBuilder sb = new StringBuilder("G0G"); // gk viet nam
     for (int i = 0; i < nbJuriesByCopy; i++) {
-      int juryIndex = (candidateIndex + i) % nbJuries + 1;
+      int juryIndex = (candidateIndex * nbJuriesByCopy + i) % nbJuries + 1;
       sb.append(juryIndex).append("G");
     }
     return sb.toString();

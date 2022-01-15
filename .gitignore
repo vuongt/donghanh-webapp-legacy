@@ -6,3 +6,7 @@
 /resources
 /mysql-data
 /mysql-volume
+.DS_Store
+Data/
+Image/
+evalforms/
