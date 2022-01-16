@@ -11,3 +11,8 @@ Requirements:
 `./gradlew appRun`
 
 ## Deploy on server
+
+1. Generate .war file, the file is output to build/libs/DH.war
+`./gradlew war`
+
+2. Deploy DH.war to tomcat server
