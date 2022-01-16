@@ -1,25 +1,34 @@
 package org.donghanh.db;
 
-import org.apache.commons.dbcp.PoolingDataSource;
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import static org.donghanh.db.DbUtils.setupDataSource;
-
 public class MainDataSource {
 
+  private static final HikariConfig config = new HikariConfig();
+  private static final HikariDataSource ds;
   private static final String DB_URL = "jdbc:mysql://localhost:3306/test?useUnicode=true"
-      + "&characterEncoding=utf-8&useSSL=false";
+          + "&characterEncoding=utf-8&useSSL=false";
   private static final String DB_USER = "dbuser";
   private static final String DB_PASSWORD = "dbuser789";
 
-  private static PoolingDataSource dataSource = setupDataSource(DB_URL, DB_USER, DB_PASSWORD);
-
-  public static Connection getConnection() throws SQLException {
-    return dataSource.getConnection();
+  static {
+    config.setJdbcUrl( DB_URL );
+    config.setUsername( DB_USER );
+    config.setPassword( DB_PASSWORD );
+    config.addDataSourceProperty( "cachePrepStmts" , "true" );
+    config.addDataSourceProperty( "prepStmtCacheSize" , "250" );
+    config.addDataSourceProperty( "prepStmtCacheSqlLimit" , "2048" );
+    config.addDataSourceProperty( "maximumPoolSize" , "2" );
+    ds = new HikariDataSource( config );
   }
 
-  private MainDataSource() {
+  private MainDataSource() {}
+
+  public static Connection getConnection() throws SQLException {
+    return ds.getConnection();
   }
 }
