@@ -2,7 +2,7 @@ version: '3.3'
 services:
   db:
     image: mysql:5.7
-    container_name: donghanh
+    container_name: donghanh-db
     restart: always
     env_file:
       - .env # Credential file for setting up your database
@@ -15,6 +15,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin
+    container_name: donghanh-db-phpadmin
     restart: always
     ports:
       - 8081:80

@@ -20,6 +20,7 @@ dependencies {
     implementation 'org.apache.pdfbox:pdfbox:1.8.6'
     implementation 'mysql:mysql-connector-java:5.1.44'
     implementation 'org.glassfish.web:jakarta.servlet.jsp.jstl:2.0.0'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.33'
     testImplementation group: 'junit', name: 'junit', version: '4.12'
 }
 
