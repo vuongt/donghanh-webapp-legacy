@@ -4,4 +4,10 @@
 /build/classes/java/main/
 /.idea
 /resources
-/old-html/
+/mysql-data
+/mysql-volume
+.DS_Store
+Data/
+Image/
+evalforms/
+.env
