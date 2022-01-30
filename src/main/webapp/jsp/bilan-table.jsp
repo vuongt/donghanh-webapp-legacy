@@ -26,24 +26,41 @@
                 <td><b>${candidate.finalScore}</b></td>
                 <td>
                     <c:if test = "${candidate.selected}">
-                    <input type='checkbox' name='selected_${candidate.code}' value="1" checked>
+                        <c:choose>
+                            <c:when test="${readOnly}">
+                                <input type='checkbox' name='selected_${candidate.code}' value="1" checked disabled>
+                            </c:when>
+                            <c:otherwise>
+                                <input type='checkbox' name='selected_${candidate.code}' value="1" checked>
+                            </c:otherwise>
+                        </c:choose>
                     </c:if>
                     <c:if test = "${!candidate.selected}">
-                    <input type='checkbox' name='selected_${candidate.code}' value="1"></td>
+                        <c:choose>
+                            <c:when test="${readOnly}">
+                                <input type='checkbox' name='selected_${candidate.code}' value="1" disabled></td>
+                            </c:when>
+                            <c:otherwise>
+                                <input type='checkbox' name='selected_${candidate.code}' value="1"></td>
+                            </c:otherwise>
+                        </c:choose>
                     </c:if>
                 </td>
             </tr>
             </c:forEach>
         </table>
-        <div class="row justify-content-end">
-        <div class="col-2">
-            <input class="form-control" type="hidden" name='university' value='${university}'></input>
-            <input type='submit' class="btn btn-success btn-block" value='Lưu kết quả'></input>
-        </div>
+        <c:if test = "${!readOnly}">
+            <div class="row justify-content-end">
+            <div class="col-2">
+                <input class="form-control" type="hidden" name='university' value='${university}'></input>
+                <input type='submit' class="btn btn-success btn-block" value='Lưu kết quả'></input>
+            </div>
+        </c:if>
         </form>
     </div>
+    <c:if test = "${!readOnly}">
         <div class="row">
-                <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <button class="btn btn-lg btn-block btn-success"
                             onclick="location.href='manage?action=result&university=${university}'">
@@ -52,4 +69,5 @@
                 </div>
                 <div class="col-md-4"></div>
             </div>
-    </div>
+        </div>
+    </c:if>

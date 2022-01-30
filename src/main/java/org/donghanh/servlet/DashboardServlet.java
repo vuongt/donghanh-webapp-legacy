@@ -1,15 +1,14 @@
 package org.donghanh.servlet;
 
-import org.donghanh.common.Constants;
-import org.donghanh.common.UniversityParams;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.donghanh.common.Constants;
+import org.donghanh.common.UniversityParams;
+
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,14 +19,6 @@ import static org.donghanh.utils.Utils.getUserProfile;
 public class DashboardServlet extends HttpServlet {
 
   private static final int NB_COLUMNS = 2;
-  static Map<String, String> locationToTitle;
-
-  static {
-    locationToTitle = new HashMap<>();
-    locationToTitle.put("FR", "Đồng Hành France");
-    locationToTitle.put("SG", "Đồng Hành Singapore");
-    locationToTitle.put("KR", "Đồng Hành Korea");
-  }
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
@@ -41,7 +32,7 @@ public class DashboardServlet extends HttpServlet {
 
   private void showDashboardByProfile(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
-    request.setAttribute("locationToTitle", locationToTitle);
+    request.setAttribute("locationToTitle", Constants.locationToTitle);
 
     Map<String, List<List<UniversityParams>>> locationToColumns =
         getUniversitiesByLocationAndColumns(NB_COLUMNS);

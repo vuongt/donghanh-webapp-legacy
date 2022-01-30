@@ -1,12 +1,12 @@
 package org.donghanh.servlet;
 
-import org.donghanh.common.UniversityParams;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.donghanh.common.UniversityParams;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,16 +25,16 @@ public class BilanServlet extends HttpServlet {
 
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
-    showBilan(request, response);
+    showBilan(request, response, false);
   }
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     saveSelectedCandidates(request);
-    showBilan(request, response);
+    showBilan(request, response, false);
   }
 
-  private void showBilan(HttpServletRequest request, HttpServletResponse response)
+  public static void showBilan(HttpServletRequest request, HttpServletResponse response, boolean readOnly)
       throws IOException, ServletException {
     String university = request.getParameter("university");
     if (university == null) {
@@ -51,10 +51,11 @@ public class BilanServlet extends HttpServlet {
     request.setAttribute("university", university);
     Map<String, Object> bilan = getBilan(nbJuries, uniParams);
     request.setAttribute("bilan", bilan);
+    request.setAttribute("readOnly", readOnly);
     request.getRequestDispatcher("/jsp/bilan.jsp").forward(request, response);
   }
 
-  private static Map<String, Object> getBilan(int nbJuries, UniversityParams universityParams) {
+  public static Map<String, Object> getBilan(int nbJuries, UniversityParams universityParams) {
     Map<String, Object> bilan = new HashMap<>();
     String university = universityParams.code;
     bilan.put("vnCoef", universityParams.vnCoef);

@@ -16,9 +16,15 @@ public final class Constants {
   public static final String CANDIDATE_TABLE_NAME = "candidates";
   public static final String FONT = "/usr/share/fonts";
 
+  public static Map<String, String> locationToTitle;
+  static {
+    locationToTitle = new HashMap<>();
+    locationToTitle.put("FR", "Đồng Hành France");
+    locationToTitle.put("SG", "Đồng Hành Singapore");
+    locationToTitle.put("KR", "Đồng Hành Korea");
+  }
 
   public static Map<String, String> PARAM_DEFAULT;
-
   static {
     PARAM_DEFAULT = new HashMap<>();
     PARAM_DEFAULT.put("LOCAL_PATH", "/var/www/html/");

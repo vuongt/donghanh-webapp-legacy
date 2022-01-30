@@ -1,8 +1,5 @@
 package org.donghanh.servlet;
 
-import org.donghanh.common.UniversityParams;
-import org.donghanh.service.ParameterService;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,23 +7,25 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import org.donghanh.common.UniversityParams;
+import org.donghanh.service.ParameterService;
+
 import java.io.*;
 import java.util.List;
 import java.util.Map;
 
+import static org.donghanh.common.Constants.locationToTitle;
 import static org.donghanh.service.CandidateService.reloadAllCandidatesData;
 import static org.donghanh.service.JuryService.createJuryTable;
 import static org.donghanh.service.ParameterService.*;
 import static org.donghanh.service.UniversityService.createCandidateTableFor;
 import static org.donghanh.service.UniversityService.getUniversitiesByLocationAndColumns;
-import static org.donghanh.servlet.DashboardServlet.locationToTitle;
 
 @WebServlet("/app/admin")
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2MB
     maxFileSize = 1024 * 1024 * 10,      // 10MB
     maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class AdminServlet extends HttpServlet {
-
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws IOException, ServletException {
     String action = request.getParameter("action");
